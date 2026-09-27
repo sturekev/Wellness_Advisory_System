@@ -1,76 +1,26 @@
-/////////////////////////////////////////////////////////////////////////////////
-// Name: Truong Phat Tu                                                        //
-// Course: CSC 2510 CS II                                                      //
-// Semester: Fall 2026                                                         //
-// File name: Employee.h                                                       //
-// Descrption: Employee Object Interface File                                  //
-// Referenace: Used AI to clarify syntax error handleign but wrote all logic   //
-// independently learn from class note and reference ChatGPT for clarify doubt //
-/////////////////////////////////////////////////////////////////////////////////
-
 ////////////////////////////////////////////////////////////////////////////////
 // Name: Truong Phat Tu                                                        //
 // Course: CSC 2510 CS II                                                      //
 // Semester: Fall 2026                                                         //
-// File name: Employee.cpp                                                     //
-// Descrption: Employee Object Implementation File                             //
+// File name: WellnessAdvioryConstructor.cpp                                   //
+// Descrption: Wellness Advisory Constructor Implementation File              //
 // Referenace: Used AI to clarify syntax error handleign but wrote all logic   //
 // independently learn from class note and reference ChatGPT for clarify doubt //
 /////////////////////////////////////////////////////////////////////////////////
-#include <iostream>
+        // #include <iostream>
+        // #include <string>
+        // #include <array>
+        // #include <unordered_map>
+#include "WellnessAdvioryConstructor.h"
 using namespace std;
 
-class WellnessAdvisor {\
+
+WellnessAdvisor::WellnessAdvisor() {
+}
 
 
-    public:
-        WellnessAdvisor(string name, string medicare) {
-            patient_name = name;
-            patient_medicare = medicare;
-            fever = false;
-            cough = false;
-            sore_throat = false;
-            nausea = false;
-            fatigue = false;
-        }
-        void displayPatientInfo() {
-            cout << "Patient Name: " << patient_name << endl;
-            cout << "Patient Medicare: " << patient_medicare << endl;
-            cout << "Fever: " << (fever ? "Yes" : "No") << endl;
-            cout << "Cough: " << (cough ? "Yes" : "No") << endl;
-            cout << "Sore Throat: " << (sore_throat ? "Yes" : "No") << endl;
-            cout << "Nausea: " << (nausea ? "Yes" : "No") << endl;
-            cout << "Fatigue: " << (fatigue ? "Yes" : "No") << endl;
-        }
-        void set_patient_name(string name) {
-            if (name.empty()) {
-                patient_name = "Unknown";
-            }
-            else if (name.length() >50) {
-                patient_name = "Unknown";
-            }
-            else if (name.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ") != string::npos) {
-                patient_name = "Unknown";
-            }
-            else {
-                patient_name = name;
-            }
-        }
-        void set_patient_medicare(string medicare) {
-            if (medicare.empty()) {
-                patient_medicare = "Unknown";
-            }
-            else if (medicare.length() > 11) {
-                patient_medicare = "Unknown";
-            }
-            else if (medicare.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") != string::npos) {
-                patient_medicare = "Unknown";
-            }
-            else {
-                patient_medicare = medicare;
-            }
-        }
-        void set_fever(bool has_fever) {
+// Setter methods for the WellnessAdvisor class.
+void WellnessAdvisor::set_fever(bool has_fever) {
             if (has_fever) {
                 cout << "Setting fever to Yes" << endl;
             }
@@ -79,7 +29,7 @@ class WellnessAdvisor {\
             }
             fever = has_fever;
         }
-        void set_cough(bool has_cough) {
+void WellnessAdvisor::set_cough(bool has_cough) {
             if (has_cough) {
                 cout << "Setting cough to Yes" << endl;
             }
@@ -88,7 +38,7 @@ class WellnessAdvisor {\
             }
             cough = has_cough;
         }
-        void set_sore_throat(bool has_sore_throat) {
+void WellnessAdvisor::set_sore_throat(bool has_sore_throat) {
             if (has_sore_throat) {
                 cout << "Setting sore throat to Yes" << endl;
             }
@@ -97,7 +47,7 @@ class WellnessAdvisor {\
             }
             sore_throat = has_sore_throat;
         }
-        void set_nausea(bool has_nausea) {
+void WellnessAdvisor::set_nausea(bool has_nausea) {
             if (has_nausea) {
                 cout << "Setting nausea to Yes" << endl;
             }
@@ -106,7 +56,7 @@ class WellnessAdvisor {\
             }
             nausea = has_nausea;
         }
-        void set_fatigue(bool has_fatigue) {
+void WellnessAdvisor::set_fatigue(bool has_fatigue) {
             if (has_fatigue) {
                 cout << "Setting fatigue to Yes" << endl;
             }
@@ -115,18 +65,61 @@ class WellnessAdvisor {\
             }
             fatigue = has_fatigue;
         }
-        void preset_advisory_message() {
+
+// Getter methods for the WellnessAdvisor class.
+
+bool WellnessAdvisor::get_fever() {
+            return fever;
+        }
+bool WellnessAdvisor::get_cough() {
+            return cough;
+        }
+bool WellnessAdvisor::get_sore_throat() {
+            return sore_throat;
+        }
+bool WellnessAdvisor::get_nausea() {
+            return nausea;
+        }
+bool WellnessAdvisor::get_fatigue() {
+            return fatigue;
+        }
+// =============================================== 
+// Support functions
+// =============================================== 
+void definne_wellness_input(string input){
+    if (input == "Y" || input == "Yes" || input == "y" || input == "yes") {
+        return true;
+    } else if (input == "N" || input == "No" || input == "n" || input == "no") {
+        return false;
+    } else {
+        cout << "Invalid input. Please enter Y/Yes or N/No." << endl;
+        return false;
+    }
+}
+
+// =============================================== 
+// System run
+// =============================================== 
+
+void WellnessAdvisor::displayPatientInfo() {
+    cout << "Fever: " << (fever ? "Yes" : "No") << endl;
+    cout << "Cough: " << (cough ? "Yes" : "No") << endl;
+    cout << "Sore Throat: " << (sore_throat ? "Yes" : "No") << endl;
+    cout << "Nausea: " << (nausea ? "Yes" : "No") << endl;
+    cout << "Fatigue: " << (fatigue ? "Yes" : "No") << endl;
+}
+// Method to preset the advisory message for the WellnessAdvisor class.
+void WellnessAdvisor::preset_advisory_message() {
             cout << "====================" << endl;
             cout << " Wellness Advisory System " << endl;
             cout << "====================" << endl;
-            cout << "1. Enter Wellness Information" << endl;
-            cout << "2. Enter Wellness Indicators" << endl;
-            cout << "3. View Wellness Advisory" << endl;
-            cout << "4. Reset Wellness Information" << endl;
-            cout << "5. Exit" << endl;
+            cout << "1. Enter Wellness Indicators" << endl;
+            cout << "2. View Wellness Advisory" << endl;
+            cout << "3. Reset Wellness Information" << endl;
+            cout << "4. Exit" << endl;
         }
 
-        void advisory_message() {
+void WellnessAdvisor::advisory_message() {
             array<string, 5> messages = {
                 "1. Stay hydrated",
                 "2. Get enough rest",
@@ -138,30 +131,61 @@ class WellnessAdvisor {\
                 cout << message << endl;
             }
         }
-        void collect_wellness_information() {}
-        void Wellness_system_run() {
-            int case= 4;
-            while (case != 5) {
+void WellnessAdvisor::collect_wellness_information() {
+    cout << "Collecting wellness information..." << endl;
+    cout << "Do you have a fever? (Y/Yes, N/No): ";
+    string fever_input;
+    cin >> fever_input;
+    fever = define_wellness_input(fever_input);
+    cout << "Do you have a cough? (Y/Yes, N/No): ";
+    string cough_input;
+    cin >> cough_input;
+    cough = define_wellness_input(cough_input);
+    cout << "Do you have a sore throat? (Y/Yes, N/No): ";
+    string sore_throat_input;
+    cin >> sore_throat_input;
+    sore_throat = define_wellness_input(sore_throat_input);
+    cout << "Do you have nausea? (Y/Yes, N/No): ";
+    string nausea_input;
+    cin >> nausea_input;
+    nausea = define_wellness_input(nausea_input);
+    cout << "Do you have fatigue? (Y/Yes, N/No): ";
+    string fatigue_input;
+    cin >> fatigue_input;
+    fatigue = define_wellness_input(fatigue_input);
+}
+
+void WellnessSuggestion (){
+    array<string, 5> suggestions = {
+        "1. Stay hydrated",
+        "2. Get enough rest",
+        "3. Maintain a balanced diet",
+        "4. Exercise regularly",
+        "5. Consult a healthcare professional if symptoms persist"
+    };
+    for (const auto& suggestion : suggestions) {
+        cout << suggestion << endl;
+    }
+}
+void WellnessAdvisor::Wellness_system_run() {
+            int choice = 4;
+            while (choice != 4) {
                 preset_advisory_message();
                 cout << "Enter your choice: ";
-                cin >> case;
-                switch (case) {
+                cin >> choice;
+                switch (choice) {
                     case 1:
                         collect_wellness_information();
                         break;
                     case 2:
-                        // Enter Wellness Indicators
-                        collect_wellness_information();
-                        break;
-                    case 3:
                         // View Wellness Advisory
                         advisory_message();
                         break;
-                    case 4:
+                    case 3:
                         reset_patient_info();
                         cout << "Wellness information has been reset." << endl;
                         break;
-                    case 5:
+                    case 4:
                         cout << "Exiting Wellness Advisory System." << endl;
                         break;
                     default:
@@ -170,53 +194,17 @@ class WellnessAdvisor {\
                 }
 
         }
-        string get_patient_name() {
-            return patient_name;
-        }
-        string get_patient_medicare() {
-            return patient_medicare;
-        }
-        bool get_fever() {
-            return fever;
-        }
-        bool get_cough() {
-            return cough;
-        }
-        bool get_sore_throat() {
-            return sore_throat;
-        }
-        bool get_nausea() {
-            return nausea;
-        }
-        bool get_fatigue() {
-            return fatigue;
-        }
+    }
 
-        void reset_symptoms() {
+void WellnessAdvisor::reset_symptoms() {
             fever = false;
             cough = false;
             sore_throat = false;
             nausea = false;
             fatigue = false;
         }
-        void reset_patient_info() {
+void WellnessAdvisor::reset_patient_info() {
             patient_name = "";
             patient_medicare = "";
             reset_symptoms();
         }
-
-    private:
-        string patient_name;
-        string patient_medicare;
-        bool fever;
-        bool cough;
-        bool sore_throat;
-        bool nausea;
-        bool fatigue;
-};
-
-
-int main() {
-    cout << "Hello, World!" << endl;
-    return 0;
-}
