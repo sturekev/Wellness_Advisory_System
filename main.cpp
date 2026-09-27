@@ -1,3 +1,22 @@
+/////////////////////////////////////////////////////////////////////////////////
+// Name: Truong Phat Tu                                                        //
+// Course: CSC 2510 CS II                                                      //
+// Semester: Fall 2026                                                         //
+// File name: Employee.h                                                       //
+// Descrption: Employee Object Interface File                                  //
+// Referenace: Used AI to clarify syntax error handleign but wrote all logic   //
+// independently learn from class note and reference ChatGPT for clarify doubt //
+/////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// Name: Truong Phat Tu                                                        //
+// Course: CSC 2510 CS II                                                      //
+// Semester: Fall 2026                                                         //
+// File name: Employee.cpp                                                     //
+// Descrption: Employee Object Implementation File                             //
+// Referenace: Used AI to clarify syntax error handleign but wrote all logic   //
+// independently learn from class note and reference ChatGPT for clarify doubt //
+/////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 using namespace std;
 
