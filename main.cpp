@@ -86,7 +86,7 @@ bool WellnessAdvisor::get_fatigue() {
 // =============================================== 
 // Support functions
 // =============================================== 
-void definne_wellness_input(string input){
+bool define_wellness_input(string input){
     if (input == "Y" || input == "Yes" || input == "y" || input == "yes") {
         return true;
     } else if (input == "N" || input == "No" || input == "n" || input == "no") {
