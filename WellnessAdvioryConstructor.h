@@ -3,7 +3,7 @@
 // Course: CSC 2510 CS II                                                      //
 // Semester: Fall 2026                                                         //
 // File name: WellnessAdvioryConstructor.h                                     //
-// Descrption: Wellness Advisory Constructor Interface File                   //
+// Descrption: Wellness Advisory Constructor Interface File                    //
 // Referenace: Used AI to clarify syntax error handleign but wrote all logic   //
 // independently learn from class note and reference ChatGPT for clarify doubt //
 /////////////////////////////////////////////////////////////////////////////////
@@ -26,12 +26,10 @@ class WellnessAdvisor {
         void set_sore_throat(bool has_sore_throat);
         void set_nausea(bool has_nausea);
         void set_fatigue(bool has_fatigue);
-        // Removed duplicate declarations of set_nausea and set_fatigue.
         void preset_advisory_message();
-        void advisory_message();
         void collect_wellness_information();
+        void WellnessSuggestion();
         void Wellness_system_run();
-        // Removed the implementation of Wellness_system_run() from the header file.
         string get_patient_name();
         string get_patient_medicare();
         bool get_fever();
@@ -39,9 +37,9 @@ class WellnessAdvisor {
         bool get_sore_throat();
         bool get_nausea();
         bool get_fatigue();     
+        array<string, 5> get_symptoms();
 
         void reset_symptoms();
-        void reset_patient_info();
 
     private:
         bool fever;
@@ -49,4 +47,5 @@ class WellnessAdvisor {
         bool sore_throat;
         bool nausea;
         bool fatigue;
+        std::unordered_map<std::string, array<string, 5>> wellness_suggestions;
 };
