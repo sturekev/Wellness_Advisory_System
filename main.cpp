@@ -203,8 +203,3 @@ void WellnessAdvisor::reset_symptoms() {
             nausea = false;
             fatigue = false;
         }
-void WellnessAdvisor::reset_patient_info() {
-            patient_name = "";
-            patient_medicare = "";
-            reset_symptoms();
-        }
